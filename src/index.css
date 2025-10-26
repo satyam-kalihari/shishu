@@ -1,0 +1,63 @@
+/**
+ * SHISHU App Desktop Presentation Styles
+ * * This CSS handles the full-screen desktop wrapper and the centered 
+ * mobile phone frame, matching the reference images provided.
+ */
+
+/* --- Global Styles --- */
+:root {
+    /* Define colors based on the image's background gradient (light blue/gray) */
+    --color-desktop-bg-start: #4057a2; /* Lighter Blue/Gray */
+    --color-desktop-bg-end: #8ea1ee;   /* Darker Blue/Gray */
+    --color-phone-frame: #1f2937;      /* Nearly Black/Dark Gray */
+    --color-app-bg: #6e9ac7;           /* Light App Background */
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    /* Ensure the body fills the entire viewport */
+    min-height: 100vh;
+}
+
+/* --- Desktop Wrapper: Centering the Phone --- */
+.desktop-wrapper {
+    /* Full-screen container with the background gradient */
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding: 1rem;
+    
+    /* Apply the light blue gradient background */
+    background: linear-gradient(145deg, var(--color-desktop-bg-start) 0%, var(--color-desktop-bg-end) 100%);
+}
+
+/* --- Phone Frame (The visual mockup border) --- */
+.phone-frame {
+    /* Fixed mobile dimensions for a desktop presentation */
+    width: 360px;
+    height: 720px;
+    
+    /* Styling the frame border */
+    background-color: var(--color-phone-frame);
+    border: 10px solid var(--color-phone-frame);
+    border-radius: 40px;
+    
+    /* Shadow for a 3D effect */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4); 
+    
+    /* Ensure internal content is correctly clipped */
+    overflow: hidden;
+    position: relative; /* For the floating chat button positioning */
+}
+
+/* --- App Screen (The viewport inside the phone) --- */
+.app-screen-content {
+    /* This section is where the React/HTML content lives */
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-app-bg);
+    overflow-y: auto; /* Allows scrolling within the phone frame */
+}
